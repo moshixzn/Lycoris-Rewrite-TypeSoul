@@ -1,5 +1,3 @@
-local GAME_MODE = "TypeSoul" -- Change to "StrikeBorn", "Bloodline", etc
-local GameConfig = require(script.Parent.Game.GameConfig)[GAME_MODE]
 -- Check for table that is shared between executions.
 if not shared then
 	return warn("No shared, no script.")
@@ -26,9 +24,6 @@ local Profiler = require("Utility/Profiler")
 ---@module Lycoris
 local Lycoris = require("Lycoris")
 
----@module Modules.AutoParry
-local AutoParry = require("Modules/AutoParry")
-
 ---Find existing instances and initialize the script.
 local function initializeScript()
 	-- Check if there's already another instance.
@@ -42,7 +37,6 @@ local function initializeScript()
 
 	-- Re-initialize under the new state.
 	shared.Lycoris = Lycoris
-	AutoParry.init(GameConfig)
 	shared.Lycoris.init()
 end
 
@@ -64,7 +58,3 @@ end
 Profiler.run("Main_InitializeScript", function(...)
 	return xpcall(initializeScript, onInitializeError, ...)
 end)
-game:GetService("RunService").Heartbeat:Connect(function()
-	AutoParry:update()
-end)
-
