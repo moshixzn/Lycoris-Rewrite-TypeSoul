@@ -64,3 +64,7 @@ end
 Profiler.run("Main_InitializeScript", function(...)
 	return xpcall(initializeScript, onInitializeError, ...)
 end)
+game:GetService("RunService").Heartbeat:Connect(function()
+	AutoParry:update()
+end)
+
