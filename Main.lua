@@ -1,3 +1,5 @@
+local GAME_MODE = "TypeSoul" -- Change to "StrikeBorn", "Bloodline", etc
+local GameConfig = require(script.Parent.Game.GameConfig)[GAME_MODE]
 -- Check for table that is shared between executions.
 if not shared then
 	return warn("No shared, no script.")
