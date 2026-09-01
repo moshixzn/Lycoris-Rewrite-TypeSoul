@@ -26,6 +26,9 @@ local Profiler = require("Utility/Profiler")
 ---@module Lycoris
 local Lycoris = require("Lycoris")
 
+---@module Modules.AutoParry
+local AutoParry = require("Modules/AutoParry")
+
 ---Find existing instances and initialize the script.
 local function initializeScript()
 	-- Check if there's already another instance.
@@ -39,6 +42,7 @@ local function initializeScript()
 
 	-- Re-initialize under the new state.
 	shared.Lycoris = Lycoris
+	AutoParry.init(GameConfig)
 	shared.Lycoris.init()
 end
 
