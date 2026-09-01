@@ -13,6 +13,9 @@ local Logger = require("Utility/Logger")
 ---@module Features.Combat.Defense
 local Defense = require("Features/Combat/Defense")
 
+---@module Features.Combat.UniversalAutoParry
+local UniversalAutoParry = require("Features/Combat/UniversalAutoParry")
+
 ---@module Features.Game.AnimationVisualizer
 local AnimationVisualizer = require("Features/Game/AnimationVisualizer")
 
@@ -40,6 +43,7 @@ function Features.init()
 	Monitoring.init()
 	AttributeListener.init()
 	Defense.init()
+	UniversalAutoParry.init()
 	Visuals.init()
 	Movement.init()
 	OwnershipWatcher.init()
@@ -65,6 +69,7 @@ function Features.detach()
 	Monitoring.detach()
 	AttributeListener.detach()
 	Defense.detach()
+	UniversalAutoParry.detach()
 	Movement.detach()
 	Visuals.detach()
 	OwnershipWatcher.detach()
